@@ -1,0 +1,25 @@
+version: "3"
+services:
+  server:
+    build: .
+    container_name: house-temperature-core2
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment: 
+      WAIT_HOSTS: "db:3306"
+      WAIT_HOSTS_TIMEOUT: 60
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes: 
+      - ./db-data:/var/lib/mysql
+    env_file:
+      - .env
+      
