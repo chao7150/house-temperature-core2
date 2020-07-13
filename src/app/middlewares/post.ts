@@ -50,7 +50,7 @@ export const insert: express.RequestHandler = (req, res, next) => {
     { date: dateString, ...tempData },
     (error, results, fields) => {
       console.log(error, results, fields);
-    }
+    },
   );
   res.send("OK");
   next();

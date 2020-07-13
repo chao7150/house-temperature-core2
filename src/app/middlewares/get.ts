@@ -30,6 +30,6 @@ export const select: express.RequestHandler = (req, res, next) => {
           time: dateTimeToTime(result.date),
         })),
       });
-    }
+    },
   );
 };
